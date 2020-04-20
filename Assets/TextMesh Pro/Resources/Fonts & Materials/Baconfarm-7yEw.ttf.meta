@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2b4fd11511d88d540ad955dd31f89540
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BaconFarm
+  fontNames:
+  - BaconFarm
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 922eb7f132b9f9344a4ab231a623b83c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
