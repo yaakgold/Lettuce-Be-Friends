@@ -114,7 +114,8 @@ public class Robber : MonoBehaviour
 
             if(animIndex == 3)
             {
-                game.player.GetComponent<CharacterMovement>().uimgr.endGame.EndGame(game.nightsAlive);
+                game.player.GetComponent<CharacterMovement>().uimgr.endGame.EndGame(game.nightsAlive, game);
+                animIndex++;
             }
         }
         else if(!doneMoving)

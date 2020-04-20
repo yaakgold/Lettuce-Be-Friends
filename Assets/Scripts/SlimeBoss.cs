@@ -96,7 +96,7 @@ public class SlimeBoss : MonoBehaviour
     {
         float num = Random.Range(.1f, .7f);
 
-        hunger -= (num * game.nightsAlive > 1 ? 1 : num * game.nightsAlive) * (3 - health);
+        hunger -= (num * game.nightsAlive > 1 ? 1 : num * game.nightsAlive) * (4 - health);
 
         if (hunger < 0)
         {

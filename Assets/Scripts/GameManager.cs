@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public int numBadSeedShape = 1;
 
     public List<int> badNumSeeds;                           //5 numbers
-    public int numBadNumSeed = 3;
+    public int numBadNumSeed = 5;
 
     public List<Color> badSeedColor, allSeedColor;          //5 colors
     public int numBadSeedColor = 3;
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         currentAddIndex = -1;
 
         //Bad Num Seeds
+        numBadNumSeed = 5;
         badNumSeeds.Add(Random.Range(1, numBadNumSeed));
 
         //Bad Seed Colors

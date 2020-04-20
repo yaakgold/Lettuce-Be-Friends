@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
             canSeedInfo = !canSeedInfo;
             seedCanvas.enabled = canSeedInfo;
             SeedScript seed = player.objectHolding.GetComponent<SeedScript>();
-            string seedText = "Seed Shape:  " + shapes[seed.seedShape];
+            string seedText = "Seed Shape:  " +     shapes[seed.seedShape];
                    seedText += "\nSeed Size:  " + sizes[seed.size];
                    seedText += "\nSeed Color:  " + color[seed.seedColorNum];
                    seedText += "\nSeed Texture:  " + (seed.smooth ? "Smooth" : "Rough");

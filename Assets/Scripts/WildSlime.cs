@@ -98,14 +98,18 @@ public class WildSlime : MonoBehaviour
     {
         if(collision.gameObject.name.Contains("top") || collision.gameObject.name.Contains("bottom"))
         {
-            FindObjectOfType<AudioManager>().Play("SlimeBounce");
             directionx = -directionx;
+
+            if (player.isInBackyard)
+                FindObjectOfType<AudioManager>().Play("SlimeBounce");
         }
 
         if(collision.gameObject.name == "Fence_right" || collision.gameObject.name == "Fence_left")
         {
-            FindObjectOfType<AudioManager>().Play("SlimeBounce");
             directiony = -directiony;
+
+            if(player.isInBackyard)
+                FindObjectOfType<AudioManager>().Play("SlimeBounce");
         }
     }
 

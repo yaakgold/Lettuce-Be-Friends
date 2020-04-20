@@ -88,9 +88,20 @@ public class SeedScript : MonoBehaviour
         }
         if(!hasTop && isPlant && seedShape == 0)
         {
+            Transform[] childList = GetComponentsInChildren<Transform>();
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                GameObject plantHair = Instantiate(emptySeed, childList[i + 1]);
+                plantHair.transform.localPosition = Vector3.zero;
+                plantHair.transform.localScale = new Vector3(1, 1, 1);
+                plantHair.GetComponent<SpriteRenderer>().sprite = top;
+                plantHair.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                plantHair.tag = "TopVeg";
+            }
+
             GameObject obj = Instantiate(emptySeed, transform);
             obj.transform.localPosition = Vector3.zero;
-            //obj.transform.localScale = new Vector3(1, 1, 1);
+            obj.transform.localScale = new Vector3(1, 1, 1);
             obj.GetComponent<SpriteRenderer>().sprite = top;
             obj.GetComponent<SpriteRenderer>().sortingOrder = 3;
             hasTop = true;
@@ -109,7 +120,6 @@ public class SeedScript : MonoBehaviour
         if (game.badSeedShape.Contains(seedShape))
         {
             howBad += 1.6f;
-            Debug.Log(howBad);
         }
         if(game.badNumSeeds.Contains(numSeeds))
         {
@@ -128,7 +138,6 @@ public class SeedScript : MonoBehaviour
             howBad += .3f;
         }
 
-        isBad = howBad > 2f;
-        Debug.Log(isBad);
+        isBad = howBad > 1.7f;
     }
 }

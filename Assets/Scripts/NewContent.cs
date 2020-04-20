@@ -18,7 +18,7 @@ public class NewContent : MonoBehaviour
                     "Color:\t" + colorNames[plant.seedColorNum] + "\t" +
                     "Size:\t" + seedSize[plant.size] + "\n" +
                     "Feel:\t" + feel[plant.smooth == true ? 1 : 0] + "\t" +
-                    "Is Poison:\t" + (plant.isBad ? "Yes" : "No") + "\n";
+                    "Is Poison:\t" + (plant.isBad ? "Yes" : "No");
 
     }
 

@@ -24,6 +24,8 @@ public class CharacterMovement : MonoBehaviour
     private float timeBetweenSwitchUp = .4f, timeSinceUp = 0;
     private float timeBetweenSwitchDn = .15f, timeSinceDn = 0;
 
+    public bool isInBackyard = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +89,7 @@ public class CharacterMovement : MonoBehaviour
                 Camera.main.transform.position = new Vector3(0, 10, -10);
                 bc2.enabled = true;
                 goingToBackyard = false;
+                isInBackyard = true;
             }
         }
 
@@ -104,6 +107,7 @@ public class CharacterMovement : MonoBehaviour
                 Camera.main.transform.position = new Vector3(0, 0, -10);
                 bc2.enabled = true;
                 goingToHouse = false;
+                isInBackyard = false;
             }
         }
 
@@ -144,6 +148,7 @@ public class CharacterMovement : MonoBehaviour
                 {
                     if (objectHolding.GetComponent<WildSlime>().canBeCaged)
                     {
+                        FindObjectOfType<AudioManager>().Play("PlaceSeed");
                         collision.gameObject.GetComponent<CageScript>().ChangeAnim(true);
                         game.wildSlimes.Remove(objectHolding);
                         Destroy(objectHolding);
@@ -155,6 +160,7 @@ public class CharacterMovement : MonoBehaviour
                 }
                 else if(objectHolding == null && collision.gameObject.GetComponent<CageScript>().isFull)
                 {
+                    FindObjectOfType<AudioManager>().Play("PlaceSeed");
                     collision.gameObject.GetComponent<CageScript>().ChangeAnim(false);
 
                     objectHolding = Instantiate(game.wildSlime);
@@ -173,6 +179,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 if (objectHolding == null && collision.gameObject.transform.childCount > 0)
                 {
+                    FindObjectOfType<AudioManager>().Play("PlaceSeed");
                     objectHolding = collision.gameObject.GetComponentsInChildren<Transform>()[1].gameObject;
                     objectHolding.transform.SetParent(transform);
                     objectHolding.transform.position *= 0;
@@ -186,6 +193,7 @@ public class CharacterMovement : MonoBehaviour
                 {
                     if(objectHolding.GetComponent<WildSlime>() != null && objectHolding.GetComponent<WildSlime>().canBeTested)
                     {
+                        FindObjectOfType<AudioManager>().Play("PlaceSeed");
                         objectHolding.transform.SetParent(collision.gameObject.transform);
                         objectHolding.transform.localPosition *= 0;
                         objectHolding.GetComponent<WildSlime>().canBeCaged = true;
@@ -226,6 +234,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 if(!movingToNextDay)
                 {
+                    FindObjectOfType<AudioManager>().Play("PlaceSeed");
                     FindObjectOfType<AudioManager>().Stop("Walk");
                     movingToNextDay = true;
                     game.MoveToNextDay();
@@ -244,6 +253,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 if(objectHolding != null)
                 {
+                    FindObjectOfType<AudioManager>().Play("Trash");
                     Destroy(objectHolding);
                     objectHolding = null;
                     isInteracting = false;
@@ -335,6 +345,7 @@ public class CharacterMovement : MonoBehaviour
             if(collision.gameObject.CompareTag("PlantSpotHolder") && objectHolding != null &&
                 !objectHolding.GetComponent<SeedScript>().isPlant && collision.gameObject.transform.childCount == 0)
             {
+                FindObjectOfType<AudioManager>().Play("PlaceSeed");
                 objectHolding.transform.SetParent(collision.gameObject.transform);
                 objectHolding.transform.localPosition *= 0;
                 objectHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
