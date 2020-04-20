@@ -107,7 +107,7 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("Stick") && game.canStick)
+        if(Input.GetButtonDown("Stick") && game.canStick && game.canStartGame)
         {
             FindObjectOfType<AudioManager>().Play("Swing");
             stick.GetComponent<Renderer>().enabled = true;

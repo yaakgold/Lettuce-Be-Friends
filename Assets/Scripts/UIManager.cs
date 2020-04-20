@@ -25,10 +25,13 @@ public class UIManager : MonoBehaviour
     public MainMenu menu;
     public GameOver endGame;
 
+    public GameManager game;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
+        game = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
         GameObject panel = noteCanvas.GetComponentInChildren<RawImage>().gameObject;
         GridLayoutGroup grid = panel.GetComponent<GridLayoutGroup>();
@@ -58,6 +61,7 @@ public class UIManager : MonoBehaviour
     {
         if(Input.GetButtonDown("Notes") && !FindObjectOfType<CharacterMovement>().movingToNextDay && FindObjectOfType<GameManager>().canStartGame)
         {
+            game.canStick = canTakeNotes;
             canTakeNotes = !canTakeNotes;
             noteCanvas.enabled = canTakeNotes;
 

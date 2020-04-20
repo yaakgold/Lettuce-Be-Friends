@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> wildSlimes;
 
-    public bool canStartGame = false, canCrossOver = true, canSleep = true, canStick = true, canPlaceSeeds = true, canCrossBack = true, canPlaceTable = true;
+    public bool canStartGame = false, canCrossOver = true, canSleep = true, canStick = false, canPlaceSeeds = true, canCrossBack = true, canPlaceTable = true;
     public bool isMenuActive = true;
 
     public Canvas settings, info;
