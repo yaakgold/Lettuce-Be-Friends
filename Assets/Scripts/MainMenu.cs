@@ -124,6 +124,7 @@ public class MainMenu : MonoBehaviour
 
             background2.enabled = false;
             background1.enabled = true;
+            background1.color = new Color(255, 255, 255, 200);
 
             game.canPlaceSeeds = false;
             game.canCrossBack = false;
@@ -133,6 +134,8 @@ public class MainMenu : MonoBehaviour
         {
             text7.enabled = false;
             text8.enabled = true;
+
+            background1.color = new Color(255, 255, 255, 255);
 
             game.canCrossBack = true;
             //game.canPlaceTable = false;
@@ -216,15 +219,15 @@ public class MainMenu : MonoBehaviour
 
         if (hardMode)
         {
-            int number = Random.Range(0, 5);
+            int number = -1;// Random.Range(0, 5);
 
             game.numBadSeedShape = (number == 0 ? 3 : Random.Range(1, 3));
 
-            game.numBadNumSeed = (number == 1 ? 5 : Random.Range(2, 5));
+            //game.numBadNumSeed = (number == 1 ? 5 : Random.Range(2, 5));
 
             game.numBadSeedColor = (number == 2 ? 5 : Random.Range(2, 5));
 
-            game.numBadSize = (number == 3 ? 3 : Random.Range(1, 3));
+            game.numBadSize = (number == 3 ? 3 : Random.Range(2, 4));
 
             game.badSmoothNum = (number == 4 ? 3 : Random.Range(1, 3));
 
