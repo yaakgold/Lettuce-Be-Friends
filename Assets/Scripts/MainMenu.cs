@@ -124,7 +124,7 @@ public class MainMenu : MonoBehaviour
 
             background2.enabled = false;
             background1.enabled = true;
-            background1.color = new Color(255, 255, 255, 200);
+            //background1.color = new Color(255, 255, 255, 200);
 
             game.canPlaceSeeds = false;
             game.canCrossBack = false;
@@ -135,7 +135,7 @@ public class MainMenu : MonoBehaviour
             text7.enabled = false;
             text8.enabled = true;
 
-            background1.color = new Color(255, 255, 255, 255);
+            //background1.color = new Color(255, 255, 255, 255);
 
             game.canCrossBack = true;
             //game.canPlaceTable = false;
