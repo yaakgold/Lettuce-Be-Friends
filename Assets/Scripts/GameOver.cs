@@ -24,7 +24,7 @@ public class GameOver : MonoBehaviour
         for (int i = 0; i < game.allSeedColor.Count; i++)
         {
             colors.Add(game.allSeedColor[i]);
-            Debug.Log(game.allSeedColor[i] + " " + colors[i]);
+
         }
 
         string retString = "Shape(s): ";

@@ -227,6 +227,9 @@ public class CharacterMovement : MonoBehaviour
                     Destroy(objectHolding);
                     objectHolding = null;
                     isInteracting = false;
+
+                    if (menu.tutorialNum == 12)
+                        menu.tutorialNum = 13;
                 }
             }
 
